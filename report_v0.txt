@@ -1,94 +1,38 @@
 1. Introduction
 
-The volume of scientific literature has grown rapidly. And there is a
-need to create an automatic summarization system which enables
-researchers to digest knowledge in a short time. Summarization is not
-a new field in NLP community; however, lots of previous work are done
-in the corpus like news, and how to summarize scientific documents is
-still under discovering.
+  The volume of scientific literature has grown rapidly. And there is a need to create an automatic summarization system which enables researchers to digest knowledge in a short time. In fact, Summarization is not a new field in NLP community; however, lots of previous work are done in the data like news, and how to summarize scientific documents is still under discovering.
 
-Scientific documents have two distinct characteristics. First, its
-structure must follow certain conventions. That is, you will
-definitely see section arrangements as introductions, previous work,
-methods, experiments, discussion and so on. It provides great
-advantages for summarization system to utilize the knowledge  
+  Scientific documents have two distinct characteristics. First, its structure must follow certain conventions. That is, you will definitely see the sections arranged like introduction, previous work,
+method, experiments, discussion and so on. It provides great advantages for summarization system to utilize the knowledge inside this structure. Second, Scientific documents will contain a special information – Citation. Scientific achievements are basically an accumulation of knowledge, and we must learn from other members in the community to make bigger contribution; therefore, unlike news that will be thrown away after few days, scientific documents will be read by lots of people and many explanations and criticism will be made inside the coomunity through citations.  
 
-Second, Scientific documents will contain a special information –
-Citation. Scientific achievement is basically an  accumulation of
-knowledge, and we must learn from other members in the community to
-make bigger contribution; therefore, unlike news that will be thrown
-away after few days, Scientific documents will be read by lots of
-people and many explanations and criticism will be made inside the
-citation.  
-
-The second attribute makes scientific document summarization extremely
-special and attractive to me, many previous works solve it from either
-both natural language or information retrieval methods and produce
-promising results. So in this project, I will focus on using citations
-to make a good summary.   
+  The second attribute makes scientific document summarization extremely special and attractive to me, many previous works solve it by either natural language or information retrieval methods and it produces promising results. So in this project, I will focus on using citations to make a good summary.   
 
 2. Summarization using Citing Sentences
 
-In fact, using citations to generate a summary is not a new idea. Many
-researches in the past had started to explore this direction. (S.
-Teufel, 2004) studies the argumentative zoning for improved citation.
-(S. Teufel et al., 2006) tries to understand the function of citation
-sentences and utilizes machine learning approach to do automatic
-classification. (V. Qazvinian et al., 2010) summarize by extracting
-significant key-phrases from the set of citation sentences. (V.
-Qazvinian & D. Radev, 2008) model the citing sentences in a graph and
-cluster it with Lexrank method. Besides, the effectiveness of citation
-is verified by  (A. Elkiss et al., 2008) and (Mohammad et al., 2009).
-Inside both study, they use different measures to point out the fact
-that there are indeed valuable information in the citation which
-cannot be obtained from the source papers. 
-    In this project, we are going to create our own system which tries
-    to combine all the methods mentioned above. And the details of the
-    system will be discussed in the following two sections. 
+  In fact, using citations to generate a summary is not a new idea. Many researches in the past had started to explore this direction. (S. Teufel, 2004) studies the argumentative zoning for improved citation. (S. Teufel et al., 2006) tries to understand the function of citation sentences and utilizes machine learning approach to do automatic classification. (V. Qazvinian et al., 2010) summarize by extracting significant key-phrases from the set of citation sentences. (V. Qazvinian & D. Radev, 2008) model the citing sentences in a graph and cluster it with Lexrank method. Besides, the effectiveness of citation is verified by  (A. Elkiss et al., 2008) and (Mohammad et al., 2009). Inside both study, they use different measures to point out the fact that there are indeed some valuable information in the citation which cannot be obtained from the source papers. In this project, we are going to create our own system which tries to improve and combine some methods mentioned above. And the details of the system will be discussed in the following section. 
 
 3. System Description
 
-In this section, I am going to discuss the basic functions that the
-baseline system should have. In general, a complete summary generating
-system should assemble following pipelines:
+3.1 General System Requirement
 
-(a) Parsing source paper: Parsing the source paper to get some
-important information such as title and authors of the paper, or
-anything that might be useful in the later stages. Save these data and
+  In this section, I am going to discuss the basic functions that the baseline system should have, and in the next section, my baseline system will be explained based on the structure introduced in this section. In general, a complete summary generating system should assemble following pipelines:
+
+(a) Parsing source paper: Parsing the source paper to get some important information such as title and authors of the paper, or anything that might be useful in the later stages. Save these data and
 proceed to the next step.
-(b) Find out all citing papers: In order to obtain the citing
-sentences, we must collect all the papers which cite the source paper
-first. One thing to note is there is no way to verify the total number
-of citing papers. We may use some tools or databases to find out
-citing papers as more as possible, but it  After getting the citing
-papers.
 
-(c) Extracting citing sentences: Inside each citing paper, there must
-be either explicit or implicit citation. Usually the citation will be
-written as author plus year inside the parentheses or brackets as
-[Authors, Year], sometimes it might just use a number and we need to
-go through the reference section in the paper to know the work being
-cited. For the explicit citation, citing sentences is just next to
-these indicators so you can easily find out the correct citing
-sentences; however, sometimes the citing sentences are not close to
-the indicators, or beside the closest sentence, adjacent sentences
-contain more important information, and it’s called implicit citation.
-The system should specify what kinds of citation it is going to use
-and the methods to detect the citing sentences.
+(b) Find out all citing papers: In order to obtain the citing sentences, we must collect all the papers which cite the source paper first. One thing to note is that there is no way to verify the total number of citing papers. We may use some tools or databases to find out citing papers as more as possible, but it simply cannot promise the completeness. After getting the citing papers, the system is prepared to extract information from it.
 
+(c) Extracting citing sentences: Inside each citing paper, there must be either explicit or implicit citation. Usually the citation will be written as author plus year inside the parentheses or brackets as
+[Authors, Year], sometimes it might just use a number and we need to go through the reference section in the paper to know the work being cited. For the explicit citation, citing sentences are just next to
+these indicators so you can easily find out the correct citing sentences; however, sometimes the citing sentences are not close to the indicators, or beside the closest sentence, adjacent sentences contain more important information, and it’s called implicit citation. The system should specify what kinds of citation it is going to extract and the methods to detect the citing sentences.
 
-(d) Using citing sentences to generate the summary:
-The most important step in the system is generating the summary. After
-getting all available citing sentences, we will be able to use them to
+(d) Using citing sentences to generate the summary: The most important step in the system is generating the summary. After getting all available citing sentences, we will be able to use them to
 summary the source paper.  
-(e) Evaluate the summary
-   After generating the summary, we need to evaluate the quality of
-   it. There are many existing methods to evaluate the result. It will
-   be discussed in details in the section X. 
+(e) Evaluate the summary: After generating the summary, we need to evaluate the quality of it. There are many existing methods to evaluate the result. It will be discussed in details in the section X. 
 
 
 
-The baseline system 
+3.2 The baseline system 
 
 In this section, I will describe the details of my baseline system by
 explaining each component introduced in the last section. 
