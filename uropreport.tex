@@ -1,0 +1,66 @@
+\documentclass[urop]{socreport}
+\usepackage[a4paper]{geometry}
+\usepackage{enumerate}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{soul}
+
+\theoremstyle{definition}
+\newtheorem{exmp}{Example}[section]
+
+\begin{document}
+
+\pagenumbering{roman}
+\title{Citation Typing}
+\author{Eric Yulianto}
+\projyear{2012/2013}
+\projnumber{U079380}
+\advisor{A/P Kan Min-Yen}
+\deliverables{
+    \item Report: 1 Volume
+}
+\maketitle
+
+\begin{abstract}
+{\it Citation Typing} is the task of automatically classifying citations, through the analysis of linguistic and physical features of the {\it citation sentence} into categories with respect to a citation typing scheme. First, we present our feature set, derived from our manually designed annotated dataset. Then, we describe our attempts in improving the current performance of citation typing system. Lastly, we also discuss the challenges that often occur in {\it Citation Typing} task.
+
+\begin{descriptors}
+	\item Information Systems\footnote{Based on The 2012 ACM Computing Classification System}
+	{\setlength\itemindent{30pt} \item - Information systems applications}
+	{\setlength\itemindent{50pt} \item Digital libraries and archives}
+	{\setlength\itemindent{30pt} \item - Information retrieval}
+	{\setlength\itemindent{50pt} \item Information extraction}
+\end{descriptors}
+\begin{keywords}
+	citation analysis, citation typing, citation classification, citation function
+\end{keywords}
+\begin{implement}
+\begin{flushleft}
+\hspace{5 mm}Software: Python 2.7, NLTK\footnote{http://nltk.org/}, WEKA Data Mining Toolkit\footnote{http://www.cs.waikato.ac.nz/ml/weka/} \nocite{hall2009weka}\\
+\hspace{5 mm}Hardware: ASUS, Intel Core i5-460M 2.53GHz, 8GB RAM.
+\end{flushleft}
+\end{implement}
+
+\end{abstract}
+
+\begin{acknowledgement}
+I want to take this opportunity to express my deep gratitude to my supervisor for this project, A/P Min Yen Kan, for his guidance and constant encouragement throughout the duration of the project. I am deeply grateful for this opportunity to have my first research experience through UROP. I also want to thank Jin Zhao and Tao Chen, for their valuable advices and continual support towards the completion of this project.
+
+Lastly, I want to thank my family and friends for their constant encouragement without which this project would not be possible.
+\end{acknowledgement}
+
+\listoffigures
+
+\tableofcontents
+
+\input{introduction.tex}
+\input{relatedwork.tex}
+\input{methodology.tex}
+\input{evaluation.tex}
+\input{conclusion.tex}
+
+\bibliographystyle{socreport}
+\bibliography{uropreport}
+
+\end{document}
