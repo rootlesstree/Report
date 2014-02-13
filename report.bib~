@@ -1,0 +1,94 @@
+@conference{abujbara2012,
+     author = {Amjad Abu-Jbara, Dragomir Radev},
+     conference = {Conference of the North American Chapter of the Association for Computational Linguistics},
+     year = {2012},
+     title = {Reference Scope Identification in citing Sentences}
+}
+
+@article{elkiss2008,
+     author = {Aaron Elkiss, siwei Shen, Anthony Fader, Gunes Erkan, David States, and Dragomir Radev},
+     journal = {Journal of the American Society for Information Science and Technology},
+     year = {2008},
+     title = {Blind Men and Elephants: What Do Citation Summaries Tell Us About a Research Article?}
+}
+
+@Proceedings{lin2004,
+title = {ROUGE:a Package for Automatic Evaluation of Summaries},
+year = {2004},
+author = {Chin-Yew Lin},
+conference = {Proceedings of the Workshop on Text summarization Btanches Out}
+}
+
+@Proceedings{mei2008,
+title = {Generating Impact-Based summaries for Scientific Literature},
+year = {2008},
+author = {Qiaozhu Mei, ChengXiang Zhai},
+conference = {Proceedings of ACL-08: HLT}
+}
+
+@conference{mohammad2009,
+     author = {Saif Mohammad, Bonnie Dorr, Melissa Egan, Ahmed Hassan, Pradeep Muthukrishan, Vahed Qazvinian, Dragomir Radev, David Zajic},
+     conference = {Annual Conference of the North American Chaper of the ACL.},
+     year = {2009},
+     title = {Using Citations to Generate surveys of Scientific Paradigms}
+}
+
+
+@InProceedings{qazvinian2008,
+  author    = {Qazvinian, Vahed  and  Radev, Dragomir R.},
+  title     = {Scientific Paper Summarization Using Citation Summary Networks},
+  booktitle = {Proceedings of the 22nd International Conference 
+                       on Computational Linguistics (Coling 2008)},
+  month     = {August},
+  year      = {2008},
+  address   = {Manchester, UK},
+  publisher = {Coling 2008 Organizing Committee},
+  pages     = {689--696},
+}
+
+
+
+
+
+
+@conference{qazvinian2010,
+     author = {Vahed Qazvinian, Dragomir R. Radev, Arzucan Ozgur},
+     conference = {Proceedings of the 23rd International Conference on Computational Linguistics},
+     year = {2010},
+     title = {Citation Summarization Through Keyphrase Extraction..}
+}
+
+@inbook{teufel2005,
+author = {Simone Teufel},
+title = {Argumentative Zoning for improved citation indexing},
+booktitle = {Computing Attitude and Affect in Text: Theory and Applications},
+year = {2005},
+bookauthor = {James G. Shanahan, Yan Qu, Janyce Wiebe (Eds.)},
+publisher = {Springer},
+location = {Dordrecht, The Netherlands},
+}
+
+@Proceedings{teufel2006,
+title = {Automatic classification of citation function},
+year = {2006},
+author = {Simone Teufel, Advaith Siddharthan, Dan Tidhar},
+conference = {Proceedings of EMNLP-06.}
+}
+
+
+@Proceedings{kokil2010,
+title = {Imitating Human Literature Review Writing: An Approach to Multi-Document Summarization},
+year = {2010},
+author = {Kokil Jaidka, Christopher Khoo, Jin-Cheon Na},
+conference = {Proceedings of ICADL}
+}
+
+
+
+@conference{qazvinianradev:2010,
+     author = {Vahed Qazvinian, Dragomir R. Radev, Arzucan Ozgur},
+     conference = {Proceedings of the 48rd Annual Meeting of the Association for Computational Linguistics},
+     year = {2010},
+     title = {Identifying Non-explicit Citing Sentences for Citation-based Summarization}
+}
+
