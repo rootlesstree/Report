@@ -1,0 +1,53 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citename{teu}{teu}{2006}{teufel2006}]{teufel2006}
+ (2006).
+\newblock {\em Automatic classification of citation function}.
+
+\bibitem[\protect\citename{mei}{mei}{2008}{mei2008}]{mei2008}
+ (2008).
+\newblock {\em Generating impact-based summaries for scientific literature}.
+
+\bibitem[\protect\citename{kok}{kok}{2010}{kokil2010}]{kokil2010}
+ (2010).
+\newblock {\em Imitating human literature review writing: An approach to
+  multi-document summarization}.
+
+\bibitem[\protect\citename{Aaron~Elkiss}{}{Radev}{Aaron~Elkiss-Radev}{2008}{elkiss2008}]{elkiss2008}
+Aaron~Elkiss, siwei~Shen, A. F. G. E. D.~S., \& Radev, D. (2008).
+\newblock Blind men and elephants: What do citation summaries tell us about a
+  research article?
+\newblock {\em Journal of the American Society for Information Science and
+  Technology}, , 2008.
+
+\bibitem[\protect\citename{Amjad Abu-Jbara}{}{}{Amjad
+  Abu-Jbara}{2012}{abujbara2012}]{abujbara2012}
+Amjad Abu-Jbara, D.~R. (2012).
+\newblock Reference scope identification in citing sentences, 2012.
+
+\bibitem[\protect\citename{Qazvinian}{}{Radev}{Qazvinian-Radev}{2008}{qazvinian2008}]{qazvinian2008}
+Qazvinian, V., \& Radev, D.~R. (2008).
+\newblock Scientific paper summarization using citation summary networks.
+\newblock {\em Proceedings of the 22nd International Conference on
+  Computational Linguistics (Coling 2008)} (pp.\ 689--696), Manchester, UK,
+  August, 2008: Coling 2008 Organizing Committee.
+
+\bibitem[\protect\citename{Saif~Mohammad}{}{}{Saif~Mohammad}{2009}{mohammad2009}]{mohammad2009}
+Saif~Mohammad, Bonnie~Dorr, M. E. A. H. P. M. V. Q. D. R. D.~Z. (2009).
+\newblock Using citations to generate surveys of scientific paradigms, 2009.
+
+\bibitem[\protect\citename{Teufel}{}{}{Teufel}{2005}{teufel2005}]{teufel2005}
+Teufel, S. (2005).
+\newblock {\em Argumentative zoning for improved citation indexing}.
+\newblock Springer.
+
+\bibitem[\protect\citename{Vahed~Qazvinian}{}{}{Vahed~Qazvinian}{2010a}{qazvinian2010}]{qazvinian2010}
+Vahed~Qazvinian, Dragomir R.~Radev, A.~O. (2010a).
+\newblock Citation summarization through keyphrase extraction.., 2010.
+
+\bibitem[\protect\citename{Vahed~Qazvinian}{}{}{Vahed~Qazvinian}{2010b}{qazvinianradev:2010}]{qazvinianradev:2010}
+Vahed~Qazvinian, Dragomir R.~Radev, A.~O. (2010b).
+\newblock Identifying non-explicit citing sentences for citation-based
+  summarization, 2010.
+
+\end{thebibliography}

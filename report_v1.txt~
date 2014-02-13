@@ -9,57 +9,34 @@ summarization system which enables researchers to digest knowledge in a short ti
 we try to use the attributes of scientific document to achieve the goal.
 
 % Min: good.
+
   Scientific documents have two distinct characteristics. First, its structure must follow certain conventions. That is, you will definitely see the sections arranged like introduction, previous work, method, experiments, discussion and so on. This provides a significant advantage for a summarization system, in being able to leverage this structure. Second, scientific documents will contain a special dimension unlike other texts –-- citations. Scientific achievement sare an accumulation of knowledge, partially based on learning from other publications by other members in the community, to make their contribution; therefore, many explanations and criticism will be made by the community through citations.  
 
-The usage of citation sentences makes scientific document summarization an interesting problem to solve. Citation sentences can present certain advanced knowledge processed by human, and generate results that are not available from original article; and how to efficiently use citation sentences to generate summaries is still a open problem. Besides, determining which evaluation method to use is also 
-
-
-In this work, I will analyze the problem in a more 
-
+The usage of citation sentences makes scientific document summarization become an more interesting problem to solve. Citation sentences can present certain advanced knowledge processed by human, and generate results that are not available from original article; and how to efficiently use citation sentences to generate summaries is still a open problem. In this work, I will review and analyze the previous methods and develop my own solution.
 
 
 2. Related Work
 
 
-In fact, using citations to generate a summary is not a new idea, as past research have explored in this direction. Based on the problem formulation, it can be catogorized into 2 types. 
+In fact, using citations to generate a summary is not a new idea, as past research have explored in this direction. The effectiveness of the citation is verified in (A. Elkiss et al., 2008) and (Mohammad et al., 2009). Inside both study, they use different measures to point out the fact that there are indeed some valuable information in the citations which cannot be obtained from the source papers. And based on the problem formulation, previous studies can be categorized into 2 types. 
 
-In the first type of problem, we assume there is a set of citing sentences and related features provided. The task of this type of problem is figuring out how to select the sentences  
+In the first type of problem, we assume there is a set of citing sentences and related features provided. The task of this type of problem is figuring out how to select the sentences to formulate the system generated summary. (S. Teufel, 2005) studies the argumentative zoning, a technique for determining the rhetorical status of a sentence, for improved citation; however, this work doesn’t consider how to use the identified zoning to construct the summary and the categories of zoning are not diverse enough to cover all kinds of citing sentences. (S. Teufel et al., 2006) also tries to understand the function of citation sentences and proposes certain features for automatic classification, but again, it doesn’t really show the effectiveness of using these categories to make a summary. Besides, it requires lots of annotation work. (Mei & Zhai, 2008) use citations to analyze the impact of sentences from original paper, and acheieve high performance. But they do not directly use the sentences from the citation context to generate the summary, which will lose certain information as pointed above. (Qazvinian & Radev, 2008) model the citing sentences in a graph with many clusters, and pick the most salient sentences by Lexrank score. This method has good performance and it is easy to implement, but it only uses statistical tf-idf score to classify the sentences, which is different from human's behavior. (V. Qazvinian et al., 2010) define the keyphrases in citation and select the citing sentences with most keyphrases. It outperforms (Qazvinian & Radev, 2008) but again it only reflects the statistical results which will overlook some sentences with semantic meaning.  
 
-as past research have explored this direction. (S. Teufel, 2005) studies the argumentative zoning for improved citation. (S. Teufel et al., 2006) tries
- to understand the function of citation sentences and utilizes machine learning approach to do automatic classification. 
-(V. Qazvinian et al., 2010) summarize by extracting significant key-phrases from the set of citation sentences. 
-(V. Qazvinian \& D. Radev, 2008) model the citing sentences in a graph and cluster it with Lexrank method. Besides, 
-the effectiveness of citation is verified by  (A. Elkiss et al., 2008) and (Mohammad et al., 2009). Inside both study, 
-they use different measures to point out the fact that there are indeed some valuable information in the citation which 
-cannot be obtained from the source papers. 
-
-For this type of problem, the assumption of having a set of citing sentences which are well processed might not be realistic. It usually requires lots of labors to annotate the correspodning labels. Besdies, in most of time, we cannot use explicit citation sentence directly. Explicit citation sentence means the sentence containing the citation marker like {} []. As pointed by (), \
-
-and sometimes 
-
-
-
-; therefore, how to automatically get good citation sentences become a research topic itself. This type of research topic is not well explored. To best of my knowledge, only () and () have systematic study of this problem; however, again it requires even more human work to get training data.
-
-Due to the limitation of resources I have, in this project, I will focus on the first type of problem, especially those don't require training data.
-
+For this type of problem, the assumption of having a set of citing sentences which are well processed might not be realistic. It usually requires lots of labors to annotate the correspodning labels. Besdies, in most of time, we cannot use explicit citation sentence directly. Explicit citation sentence means the sentence containing the citation marker like {} []. As pointed by (Qazvinian & Radev, 2010), sometimes the useful information is in the surroundings. And it will be very difficult to automatically identidy the useful part of citations; therefore, how to automatically get good citation sentences become a research topic itself. This type of research topic is not well explored. To best of my knowledge, only (Abu-Jbara & Radev, 2012) and (Qazvinian & Radev, 2010) have systematic study of this problem; In (Abu-Jbara & Radev, 2012), they try to extract useful information from only single citation sentence; and in (Qazvinian & Radev, 2010), they focus on finding out the non-explicit citations. It is shown in (Abu-Jbara & Radev, 2012) that good citation sentences will result in a better result with the same summarization system; therefore, this type of problem really worth exploring; however, again it requires even more human work to get training data. Due to the limitation of resources I have, in this project, I will focus on the first type of problem, especially those don't require training data.
 
 3. Problem Definition
 
-As discussed above, using citation sentences can be a very 
-Here, I try to so.ve the simplest one that 
-
-Given a set of citing sentencs S = {S1,S2,......Sn}, and the length limit of the final sumaary N, we are trying to find out k sentences from S such that words count of these k sentences are smaller than N.
-
-
-
+As discussed above, there are different methods to solve the problem using citation sentences. Here, I point out the exact problem to solve by defining it formally. The problem can be formulated as given a set of citing sentencs S = {S1,S2,......Sn}, and the length limit of the final sumaary N, we are trying to find out k sentences from S such that words count of these k sentences are smaller than N. We will assume that all sentences in S are well processed and it will also contain non-explicit citations; however, due to the limited resources, the reference scope is not identified so there will be some redundant part in the citing sentence.
 
 
 4. Methods
 
-In many AI works, researchers try to build up systems simulating human's behavior. For example, (Kokil) has analyzed the formulation of review papers and tries to figure out how human summarize the scientific article. And based on personal experience, I believe when we are doing summarization, we catogorize sentences into different functional groups as topics, methods, experiments, results, ...etc. And we will consider the best combination between the groups and select appropriate sentences correspondingly to form the final summary. As we can observe, formulating different groups is the most important step in the whole process. Human might use functional or semantic meanings of sentence to classify. And in this work, I want to simulate this process and try to find out the useful representations which can generate a good summary.
+In many AI works, researchers try to build up systems simulating human's behavior. For example, (Kokil et al., 2010) have analyzed the formulation of review papers and tries to figure out how human summarize the scientific article. And based on personal experience, I believe when we are doing summarization, we catogorize sentences into different functional groups as topics, methods, experiments, results, ...etc. And we will consider the best combination between the groups and select appropriate sentences correspondingly to form the final summary. As we can observe, formulating different groups is the most important step in the whole process. Human might use functional or semantic meanings of sentence to classify the sentences. And in this work, I want to simulate this process and try to find out the useful representations which can generate a good summary.
 
-As mentioned above, (C-LEXRANK) will classify citing sentences into groups by cosine tf-idf similaries between the sentences. This step is similar to human behavior in the sense that it will produce different groups; therefore, it's a good start for trying to simulate human decision behavior. However, tf-idf is a statistical method which contains no significal NLP meaning. In this work, I try to tackle the problem on top of C-Lexrank, and replace the similarity measure with more semantical methods. 
+As mentioned above, (Qazvinian & Radev, 2008) classify citing sentences into groups by cosine tf-idf similaries between the sentences. This step is similar to human behavior in the sense that it will produce different groups; therefore, it's a good start for trying to simulate human decision behavior. The Lexrank method used in this work is to find out the most salient sentence in a certain cluster. It is easy to implement and has nothing to do with clustering step; therefore, I will keep using this tool once the clustering is done. Instead of using statistical measure, sementical and functional informtaion will give us a more human-like measure. In (Kokil et al., 2010), they have collected many patterns of human summarization in regular expression form. Although it is a rule-based system, it provides many details about the intention of, I will utilize these rules and combine with lexrank method to summarize the documents.
+
+ 
+
 
 
 
@@ -81,6 +58,7 @@ In fact, trying to objectively evalute a subjective task is very difficult. Ther
 
 
 5.3 Result and Discussion
+
 
 
 
